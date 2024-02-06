@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Performance Prediction</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question-card {
+      display: none;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    select, button {
+      width: 70%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .button-container {
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+form {
+  width: 70%; /* Adjust the width of the form container */
+  max-width: 600px; /* Adjust the maximum width if needed */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+  </style>
+</head>
+<body>
+<h1>Student Performance Prediction</h1>
+<div class="container">
+  <form method="get" action="{% url 'core:studentperformance' %}" class="form-container">
+    <!-- Question 1 -->
+
+      <label for="age">What is your age bracket?</label>
+      <select name="Student_Age">
+        <option value="0">Select an option</option>
+        <option value="1">18-21</option>
+        <option value="2">22-25</option>
+        <option value="3">Above 26</option>
+      </select>
+    
+
+    <!-- Question 2 -->
+    
+      <label for="sex">Sex:</label>
+      <select name="Gender">
+        <option value="0">Select an option</option>
+        <option value="1">None</option>
+        <option value="2">Female</option>
+        <option value="3">Male</option>
+      </select>
+  
+
+    <!-- Question 3 -->
+
+      <label for="high_school">Which type of High did you graduate from?</label>
+      <select name="Graduated_High_School_Type">
+        <option value="0">Select an option</option>
+        <option value="1">Private</option>
+        <option value="2">State</option>
+        <option value="3">Other</option>
+      </select>
+
+
+    <!-- Continue with questions 4 to 9 -->
+
+    <!-- Question 4 -->
+    
+      <label for="scholarship">What is the nature of your scholarship?</label>
+      <select name="Scholarship type">
+        <option value="0">Select an option</option>
+        <option value="1">None</option>
+        <option value="2">25%</option>
+        <option value="3">50%</option>
+        <option value="4">75%</option>
+        <option value="5">Full</option>
+      </select>
+
+    <!-- Question 5 -->
+
+      <label for="additional_work">Do you do additional work while in school?</label>
+      <select name="Additional work">
+        <option value="0">Select an option</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+      </select>
+  
+
+    <!-- Question 6 -->
+    
+      <label for="activity">Do you engage in regular artistic or sports activity:</label>
+      <select name="Regular or Sport_Activity">
+        <option value="0">Select an option</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+      </select>
+    
+
+    <!-- Question 7 -->
+    
+      <label for="partner">Do you have a partner in school?</label>
+      <select name="Do you have a partner">
+        <option value="0">Select an option</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+      </select>
+    
+
+    <!-- Question 8 -->
+    
+      <label for="salary">What is your total salary if available?</label>
+      <select name="Total Salary if available">
+        <option value="0">Select an option</option>
+        <option value="1">Below 10 USD</option>
+        <option value="2">USD 135-200</option>
+        <option value="3">USD 201-270</option>
+        <option value="4">USD 271-340</option>
+        <option value="5">USD 341-410</option>
+        <option value="6">Above 410</option>
+      </select>
+    
+
+    <!-- Question 9 -->
+  
+      <label for="transportation">How do you transport yourself to school?</label>
+      <select name="Transportation medium to school">
+        <option value="0">Select an option</option>
+        <option value="1">Bus</option>
+        <option value="2">Private car/taxi</option>
+        <option value="3">Bicycle</option>
+        <option value="4">Other</option>
+      </select>
+  
+
+    <!-- Continue with questions 10 to 30 -->
+
+    <!-- Question 10 -->
+  
+      <label for="accommodation">What is your accommodation type in school?</label>
+      <select name="Accomodation type">
+        <option value="0">Select an option</option>
+        <option value="1">Rental</option>
+        <option value="2">Dormitory</option>
+        <option value="3">With family</option>
+        <option value="4">Other</option>
+      </select>
+    
+
+    <!-- Continue with questions 11 to 30 -->
+
+    <!-- Question 11 -->
+    
+      <label for="mother_education">What is the education level of your mum?</label>
+      <select name="Mothers Education">
+        <option value="0">Select an option</option>
+        <option value="1">Primary school</option>
+        <option value="2">Secondary school</option>
+        <option value="3">High school</option>
+        <option value="4">University</option>
+        <option value="5">MSc.</option>
+        <option value="6">Ph.D.</option>
+      </select>
+  
+
+    <!-- Continue with questions 12 to 30 -->
+
+    <!-- Question 12 -->
+    
+      <label for="father_education">What is the education level of your father?</label>
+      <select name="FATHER_EDU">
+        <option value="0">Select an option</option>
+        <option value="1">Primary school</option>
+        <option value="2">Secondary school</option>
+        <option value="3">High school</option>
+        <option value="4">University</option>
+        <option value="5">MSc.</option>
+        <option value="6">Ph.D.</option>
+      </select>
+    
+
+    <!-- Continue with questions 13 to 30 -->
+
+    <!-- Question 13 -->
+    
+      <label for="siblings">What is the number of your siblings? </label>
+      <select name="Number of Siblings">
+        <option value="0">Select an option</option>
+        <option value="1">0</option>
+        <option value="2">1</option>
+        <option value="3">2</option>
+        <option value="4">3</option>
+        <option value="5">4</option>
+        <option value="6">5 or above</option>
+      </select>
+    
+
+    <!-- Continue with questions 14 to 30 -->
+
+    <!-- Question 14 -->
+    
+      <label for="parental_status">What is the marital status of your parents?</label>
+      <select name="Parental status">
+        <option value="0">Select an option</option>
+        <option value="1">Married</option>
+        <option value="2">Divorced</option>
+        <option value="3">Died - one of them or both</option>
+      </select>
+  
+
+    <!-- Continue with questions 15 to 30 -->
+
+    <!-- Question 15 -->
+    
+      <label for="mother_occupation">What is your mother's occupation?</label>
+      <select name="Mothers occupation">
+        <option value="0">Select an option</option>
+        <option value="1">Retired</option>
+        <option value="2">Housewife</option>
+        <option value="3">Government officer</option>
+        <option value="4">Private sector employee</option>
+        <option value="5">Self-employment</option>
+        <option value="6">Other</option>
+      </select>
+  
+
+    <!-- Continue with questions 16 to 30 -->
+
+    <!-- Question 16 -->
+
+      <label for="father_occupation">What is your father's occupation?</label>
+      <select name="Fathers occupation">
+        <option value="0">Select an option</option>
+        <option value="1">Retired</option>
+        <option value="2">Government officer</option>
+        <option value="3">Private sector employee</option>
+        <option value="4">Self-employment</option>
+        <option value="5">Other</option>
+      </select>
+    
+
+    <!-- Continue with questions 17 to 30 -->
+
+    <!-- Question 17 -->
+    
+      <label for="study_hours">How many hours do you study in a week?</label>
+      <select name="Weekly study hours">
+        <option value="0">Select an option</option>
+        <option value="1">None</option>
+        <option value="2">Less than 5 hours</option>
+        <option value="3">6-10 hours</option>
+        <option value="4">11-20 hours</option>
+        <option value="5">More than 20 hours</option>
+      </select>
+    
+
+    <!-- Continue with questions 18 to 30 -->
+
+    <!-- Question 18 -->
+    
+      <label for="reading_frequency_non_scientific">What is your reading frequency for non-scientific books/journals?</label>
+      <select name="Reading frequency_Non-scientific book">
+        <option value="0">Select an option</option>
+        <option value="1">None</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Often</option>
+      </select>
+    
+
+    <!-- Continue with questions 19 to 30 -->
+
+    <!-- Question 19 -->
+    
+      <label for="reading_frequency_scientific">What is your reading frequency for scientific books/journals?</label>
+      <select name="Reading frequency_Scientific book">
+        <option value="0">Select an option</option>
+        <option value="1">None</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Often</option>
+      </select>
+    
+
+    <!-- Continue with questions 20 to 30 -->
+
+    <!-- Question 20 -->
+    
+      <label for="attendance_seminars">Do you attend seminars/conferences related to your department?</label>
+      <select name="Attendance to departmental seminar and conferencese">
+        <option value="0">Select an option</option>
+        <option value="1">Yes</option>
+        <option value="2">No</option>
+      </select>
+    
+
+    <!-- Continue with questions 21 to 30 -->
+
+    <!-- Question 21 -->
+    
+      <label for="impact_projects">What is the impact of any project related to your academics you have been involved in?</label>
+      <select name="Impact of any project to your success">
+        <option value="0">Select an option</option>
+        <option value="1">Positive</option>
+        <option value="2">Negative</option>
+        <option value="3">Neutral</option>
+      </select>
+  
+
+    <!-- Continue with questions 22 to 30 -->
+
+    <!-- Question 22 -->
+    
+      <label for="attendance_classes">How often do you attend class?</label>
+      <select name="Attendance to class">
+        <option value="0">Select an option</option>
+        <option value="1">Always</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Never</option>
+      </select>
+    
+
+    <!-- Continue with questions 23 to 30 -->
+
+    <!-- Question 23 -->
+    
+      <label for="preparation_midterm1">How do you prepare for first semester exams?</label>
+      <select name="Preparation_to_midterm-exam_1">
+        <option value="0">Select an option</option>
+        <option value="1">Alone</option>
+        <option value="2">With friends</option>
+        <option value="3">Not applicable</option>
+      </select>
+    
+
+    <!-- Continue with questions 24 to 30 -->
+
+    <!-- Question 24 -->
+    
+      <label for="preparation_midterm2">How do you prepare for second semester exams?</label>
+      <select name="Preparation_to_midterm_exam-2">
+        <option value="0">Select an option</option>
+        <option value="1">Closest date to the exam</option>
+        <option value="2">Regularly during the semester</option>
+        <option value="3">Never</option>
+      </select>
+    
+
+    <!-- Continue with questions 25 to 30 -->
+
+    <!-- Question 25 -->
+    <div class="question-card" id="question25">
+      <label for="taking_notes">Do you take notes in class?</label>
+      <select name="Takes Notes in class">
+        <option value="0">Select an option</option>
+        <option value="1">Never</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Always</option>
+      </select>
+    </div>
+
+    <!-- Continue with questions 26 to 30 -->
+
+    <!-- Question 26 -->
+    
+      <label for="listening_classes">Do you listen while the lecture is going on?</label>
+      <select name="Listens in Class">
+        <option value="0">Select an option</option>
+        <option value="1">Never</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Always</option>
+      </select>
+    
+
+    <!-- Continue with questions 27 to 30 -->
+
+    <!-- Question 27 -->
+    
+      <label for="discussion_improves">Does discussion improve your interest in your course of study?</label>
+      <select name="Discussion improves my success">
+        <option value="0">Select an option</option>
+        <option value="1">Never</option>
+        <option value="2">Sometimes</option>
+        <option value="3">Always</option>
+      </select>
+    
+
+    <!-- Continue with questions 28 to 30 -->
+
+    <!-- Question 28 -->
+    
+      <label for="flip_classroom">Do you prefer a classroom where you watch lessons at home and do activities and discussions in class, or do you prefer learning everything in class with the teacher?</label>
+      <select name="Flips classroom">
+        <option value="0">Select an option</option>
+        <option value="1">Not useful</option>
+        <option value="2">Useful</option>
+        <option value="3">Not applicable</option>
+      </select>
+    
+
+    <!-- Continue with questions 29 to 30 -->
+
+    <!-- Question 29 -->
+    
+      <label for="gpa_last_semester">What is your cumulative grade point average in the last semester?</label>
+      <select name="Grade Point Average in Last semester">
+        <option value="0">Select an option</option>
+        <option value="1">Less than 2.00</option>
+        <option value="2">2.00-2.49</option>
+        <option value="3">2.50-2.99</option>
+        <option value="4">3.00-3.49</option>
+        <option value="5">Above 3.49</option>
+      </select>
+    
+
+    <!-- Question 30 -->
+    
+      <label for="gpa_graduation">What is your expected cumulative grade point average at graduation?</label>
+      <select name="Expected CGPA in graduation">
+        <option value="0">Select an option</option>
+        <option value="1">Less than 2.00</option>
+        <option value="2">2.00-2.49</option>
+        <option value="3">2.50-2.99</option>
+        <option value="4">3.00-3.49</option>
+        <option value="5">Above 3.49</option>
+      </select>
+    <center><button type="submit" class="button-click" >Predict</button></center>
+
+  </form>
+    
+</div>
+
+
+  
+  
+
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Prediction</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+    </style>
+    <script>
+      let currentQuestion = 1;
+
+  function nextQuestion(currentCardId) {
+    document.getElementById(currentCardId).style.display = "none";
+    currentQuestion++;
+
+    if (currentQuestion <= 18) {
+        let nextCardId = "questionCard" + currentQuestion;
+        document.getElementById(nextCardId).style.display = "block";
+    } else {
+        document.getElementById("finalCard").style.display = "block";
+    }
+}
+
+
+function submitForm() {
+    // Perform form submission or data processing here
+    alert("Form submitted successfully!");
+}
+
+    </script>
+</head>
+
+
+<body>
+    <header>
+      <h1 style="background-color: black; color: white; text-align: center; padding: 0; margin: 0;">CAREER ADVISORY AND RECOMMENDATION SYSTEM</h1>
+    </header>
+    <form method="get" action="{% url 'core:careerpath' %}">
+      <div class="container" id="questionContainer"  >
+        
+            <div class="card" id="questionCard1">
+                <h2>Question 1</h2>
+                <p>How would you rate your logical quotient?</p>
+                <select name="Logical quotient rating" required>
+                  <option value="---">Select an option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                  <option value="5">Five</option>
+                  <option value="6">Six</option>
+                  <option value="7">Seven</option>
+                  <option value="8">Eight</option>
+                  <option value="9">Nine</option>
+                </select>
+                <br>
+                <button type="button" onclick="nextQuestion('questionCard1')">Next</button>
+            </div>
+    
+            <div class="card" id="questionCard2" style="display: none;">
+                <h2>Question 2</h2>
+                <p>How many hackathons have you participated in?</p>
+                <select name="hackathons" required>
+                  <option value="---">Select an option</option>
+                  <option value="0">None</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                  <option value="5">Five</option>
+                  <option value="6">Six</option> 
+                </select>
+
+                <br>
+
+                <button type="button" onclick="nextQuestion('questionCard2')">Next</button>
+            </div>
+    
+            <div class="card" id="questionCard3" style="display: none;">
+                <h2>Question 3</h2>
+                <p>How would you rate your coding skills?</p>
+                <select name="coding skills rating" required>
+                  <option value="---">Select an option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                  <option value="5">Five</option>
+                  <option value="6">Six</option>
+                  <option value="7">Seven</option>
+                  <option value="8">Eight</option>
+                  <option value="9">Nine</option>
+                </select>
+                <br>
+
+                <button type="button" onclick="nextQuestion('questionCard3')">Next</button>
+            </div>
+    
+            <div class="card" id="questionCard4" style="display: none;">
+                <h2>Question 4</h2>
+                <p>What is your public speaking points?</p>
+                <select name="public speaking points" required>
+                  <option value="---">Select an option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                  <option value="4">Four</option>
+                  <option value="5">Five</option>
+                  <option value="6">Six</option>
+                  <option value="7">Seven</option>
+                  <option value="8">Eight</option>
+                  <option value="9">Nine</option>
+                </select>
+                <br>
+
+                <button type="button" onclick="nextQuestion('questionCard4')">Next</button>
+            </div>
+    
+            <div class="card" id="questionCard5" style="display: none;">
+                <h2>Question 5</h2>
+                <p>Do you have self-learning capability?</p>
+                <select name="self-learning capability?" required>
+                  <option value="---">Select an option</option>
+                  <option value="0">No</option>
+                  <option value="1">Yes</option>
+                </select>
+                <br>
+                <button type="button" onclick="nextQuestion('questionCard5')">Next</button>
+            </div>
+    
+            <div class="card" id="questionCard6" style="display: none;">
+                <h2>Question 6</h2>
+                <p>Have you completed any extra course?</p>
+                <select name="Extra-courses did" required>
+                  <option value="---">Select an option</option>
+                  <option value="0">No</option>
+                  <option value="1">Yes</option>
+                </select>
+                <button type="button" onclick="nextQuestion('questionCard6')">Next</button>
+            </div>
+    
+            
+            <div class="card" id="questionCard7" style="display: none;">
+              <h2>Question 7</h2>
+              <p>Which of the certification do you have?</p>
+              <select name="certifications" required>
+                <option value="">Select an option</option>
+                <option value="1">information security</option>
+                <option value="2">shell programming</option>
+                <option value="3">machine learning</option>
+                <option value="4">full stack</option>
+                <option value="5">app development</option>
+                <option value="6">r programming</option>
+                <option value="7">hadoop</option>
+                <option value="8">app development</option>
+                <option value="9">python</option>
+              </select>
+              <br>
+              <button type="button" onclick="nextQuestion('questionCard7')">Next</button>
+          </div>
+
+          <div class="card" id="questionCard8" style="display: none;">
+              <h2>Question 8</h2>
+              <p>Which of the workshops have you participated in?</p>
+              <select name="workshops" required>
+                <option value="1">testing</option>
+                <option value="2">database security</option>
+                <option value="3">game development</option>
+                <option value="4">data science</option>
+                <option value="5">system designing</option>
+                <option value="6">hacking</option>
+                <option value="7">web technologies</option>
+              </select>
+              <br>
+
+              <button type="button" onclick="nextQuestion('questionCard8')">Next</button>
+          </div>
+
+          <div class="card" id="questionCard9" style="display: none;">
+              <h2>Question 9</h2>
+              <p>How would you rate your reading and writing skills?</p>
+              <select name="reading and writing skills" required>
+                <option value="">Select an option</option>
+                <option value="0">Poor</option>
+                <option value="1">Medium</option>
+                <option value="2">Excellent</option>
+              </select>
+              <br>
+              <button type="button" onclick="nextQuestion('questionCard9')">Next</button>
+          </div>
+
+          <div class="card" id="questionCard10" style="display: none;">
+              <h2>Question 10</h2>
+              <p>What is your memory capability score?</p>
+              <select name="memory capability score" required>
+                <option value="">Select an option</option>
+                <option value="0">Poor</option>
+                <option value="1">Medium</option>
+                <option value="2">Excellent</option>
+              </select>
+              <br>
+
+              <button type="button" onclick="nextQuestion('questionCard10')">Next</button>
+          </div>
+
+          <div class="card" id="questionCard11" style="display: none;">
+              <h2>Question 11</h2>
+              <p>What is your interested subjects?</p>
+              <select name="Interested subjects" required>
+                <option value="">Select an option</option>
+                <option value="1">programming</option>
+                <option value="2">Management</option>
+                <option value="3">data engineering</option>
+                <option value="4">networks</option>
+                <option value="5">Software Engineering</option>
+                <option value="6">cloud computing</option>
+                <option value="7">parallel computing</option>
+                <option value="8">Computer Architecture</option>
+                <option value="9">hacking</option>
+              </select>
+              <br>
+              <button type="button" onclick="nextQuestion('questionCard11')">Next</button>
+          </div>
+
+          <div class="card" id="questionCard12" style="display: none;">
+              <h2>Question 12</h2>
+              <p>What is your interested career area?</p>
+              <select name="interested career area" required>
+                <option value="1">testing</option>
+                <option value="2">system developer</option>
+                <option value="3">Business process analyst</option>
+                <option value="4">security</option>
+                <option value="5">developer</option>
+                <option value="6">cloud computing</option>
+                
+              </select>
+              <br>
+
+              <button type="button" onclick="nextQuestion('questionCard12')">Next</button>
+          </div>
+
+          <div class="card" id="questionCard13" style="display: none;">
+            <h2>Question 13</h2>
+            <p>What type of company do you want to work in?</p>
+            <select name="Type of company want to settle in?" required>
+              <option value="">Select an option</option>
+              <option value="1">BPA</option>
+              <option value="2">Cloud Services</option>
+              <option value="3">product development</option>
+              <option value="4">Testing and Maintainance Services</option>
+              <option value="5">SAaS services</option>
+              <option value="6">Web Services</option>
+              <option value="7">Finance</option>
+              <option value="8">Sales and Marketing</option>
+              <option value="9">Product based</option>
+              <option value="10">Service Based</option>
+            </select>
+            <br>
+            <button type="button" onclick="nextQuestion('questionCard13')">Next</button>
+        </div>
+
+        <div class="card" id="questionCard14" style="display: none;">
+            <h2>Question 14</h2>
+            <p>Do you take advise from seniors or elders?</p>
+            <select name="Taken inputs from seniors or elders" required>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+            <br>
+
+            <button type="button" onclick="nextQuestion('questionCard14')">Next</button>
+        </div>
+
+        <div class="card" id="questionCard15" style="display: none;">
+            <h2>Question 15</h2>
+            <p>What type of books are you interested in reading?</p>
+            <select name="Interested Type of Books" required>
+              <option value="">Select an option</option>
+              <option value="1">Series</option>
+              <option value="2">Autobiographies</option>
+              <option value="3">Travel</option>
+              <option value="4">Guide</option>
+              <option value="5">Health</option>
+              <option value="6">Journals</option>
+              <option value="7">Anthology</option>
+              <option value="8">Dictionaries</option>
+              <option value="9">Prayer books</option>
+              <option value="10">Art</option>
+              <option value="11">Encyclopedias</option>
+              <option value="12">Religion-Spirituality</option>
+              <option value="13">Action and Adventure</option>
+              <option value="14">Comics</option>
+              <option value="15">Horror</option>
+              <option value="16">Satire</option>
+              <option value="17">Self help</option>
+              <option value="18">History</option>
+              <option value="19">Cookbooks</option>
+              <option value="20">'Math</option>
+              <option value="21">Biographies</option>
+              <option value="22">Drama</option>
+              <option value="23">Diaries</option>
+              <option value="24">Science fiction</option>
+              <option value="25">Poetry</option>
+              <option value="26">Romance</option>
+              <option value="27">Science</option>
+              <option value="28">Trilogy</option>
+              <option value="29">Fantasy</option>
+              <option value="30">Childrens</option>
+              <option value="31">Mystery</option>
+            </select>
+            <br>
+            <button type="button" onclick="nextQuestion('questionCard15')">Next</button>
+        </div>
+
+        <div class="card" id="questionCard16" style="display: none;">
+            <h2>Question 16</h2>
+            <p>Do you love management role or technical role?</p>
+            <select name="Management or Technical" required>
+              <option value="">Select an option</option>
+              <option value="1">Management</option>
+              <option value="2">Technical</option>
+            </select>
+            <br>
+            <button type="button" onclick="nextQuestion('questionCard16')">Next</button>
+        </div>
+
+        <div class="card" id="questionCard17" style="display: none;">
+            <h2>Question 17</h2>
+            <p>Are you a smart or hardworking person?</p>
+            <select name="hard/smart worker"required>
+              <option value="">Select an option</option>
+              <option value="1">smart worker</option>
+              <option value="2">hard worker</option>
+            </select>
+            <br>
+
+            <button type="button" onclick="nextQuestion('questionCard17')">Next</button>
+        </div>
+
+        <div class="card" id="questionCard18" style="display: none;">
+            <h2>Question 18</h2>
+            <p>Have you ever worked in a team before?</p>
+            <select  name="worked in teams ever"   required>
+              <option value="">Select an option</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+            <br>
+
+            <button type="button" onclick="nextQuestion('questionCard18')">Next</button>
+        </div>
+
+        <div class="card" id="finalCard" style="display: none;">
+            <h2>Final Question</h2>
+            <p>Are you an introvert?</p>
+            <select  name="Introvert"   required>
+              <option value="">Select an option</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+            <br>
+
+            <button class="button"> Submit</button>
+        </div>
+
+        
+      
+    </div>
+  
+  </form>
+    
+</body>
+
+</html>

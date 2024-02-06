@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Advisory System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: hsl(199, 89%, 51%); /* Light blue background */
+        }
+
+        header {
+            background-color: blue; /* Dark gray background */
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header img {
+            height: 30px; /* Adjust the height as needed */
+            margin-right: 10px; /* Add spacing between the icon and text */
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 75%; /* Set width to 75% */
+            margin-left: auto; /* Center the section */
+            margin-right: auto; /* Center the section */
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #03a30b; 
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: #333; /* Slightly lighter on hover */
+        }
+
+        .prediction-section {
+            margin-top: 30px;
+            border-top: 2px solid #ddd;
+            padding-top: 20px;
+            width: 75%; /* Set width to 75% */
+            margin-left: auto; /* Center the section */
+            margin-right: auto; /* Center the section */
+        }
+
+        .predict-btn {
+            background-color: blue; /* Dark gray button */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .predict-btn:hover {
+            background-color: #333; /* Slightly lighter on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: black;
+            color: white; 
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Class Advisory System</h1>
+    </header>
+
+    <section>
+        <h2>Welcome to CAS - A  Class Advisory System</h2>
+        <p style="text-align: justify;">This system is designed to recommend a job role in tech and as well
+        serve as an academic performance advisory system. The academic advisory feature of this system gives you a personalized advice and
+        feedback based on your predicted academic performance. <b>Explore our system!</b>  </p>
+    </section>
+
+    <section class="prediction-section">
+        <h2>Career Path Advisory System</h2>
+        <p>Click the button below to access the career path advisory system </p>
+        <a href="{% url 'core:career' %}" class="predict-btn">Clcik me</a>  
+    </section>
+
+    <section class="prediction-section">
+        <h2>Academic Performance Advisory System</h2>
+        <p>Click the button below to access the academic performance advisory system </p>
+        <a href="{% url 'core:performance' %}" class="predict-btn">Clcik me</a> 
+    </section>
+
+    <footer>
+        <p style="color: white; ">&copy; 2024 Class Advisory System. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

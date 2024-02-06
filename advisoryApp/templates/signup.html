@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333333;
+        }
+        p {
+            text-align: center;
+            color: #666666;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>CAS - Class Advisory System</h1>
+        <p>Welcome to CAS, a system designed to provide class advisory services.</p>
+        <h2>Sign Up</h2>
+        {%if form.errors %}
+        
+            <span style="color: red;">{{form.errors}}</span>
+       
+        {% endif %}
+        <form id="loginForm" method="POST">
+            {% csrf_token %}
+
+            {{form.email}}
+            {{form.username}}
+            {{form.password1}}
+            {{form.password2}}
+            <button type="submit">Sign Up</button>
+            <center><a href="{% url 'core:login' %}" class="back-button">Login</a>  </center> 
+   
+        </form>
+    </div>
+
+
+</body>
+</html>

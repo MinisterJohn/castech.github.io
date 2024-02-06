@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Path Prediction Result</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+#result-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+.back-button {
+  display: inline-block;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+
+  }
+  
+  .back-button:hover {
+      background-color: #0056b3;
+    }
+
+    </style>
+    
+</head>
+
+<body>
+    <header>
+        <h1>Career Path Prediction Result</h1>
+    </header>
+
+    <div class="result-container">
+        <div id="result-content">
+          <p>The system predicts: <b> {{ ans }} </b> </p>
+        </div>
+    </div>
+
+    <center><a href="{% url 'core:home' %}" class="back-button">Back to Home</a>  </center> 
+</body>
+
+</html>
